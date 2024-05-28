@@ -55,7 +55,7 @@ const filteredData = await filterJsonFile(jsonFilePath, 'column 2', 'test2');
 console.log(filteredData);
 
 console.log('------------------------------------------');
-const filteredData1 = await filterJsonData(filteredData, 'column 5', 'abcd1');
+const filteredData1 = await filterJsonData(filteredData, 'column 5', 'abcd');
 console.log(filteredData1);
 
 console.log('------------------------------------------');

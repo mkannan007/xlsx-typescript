@@ -114,8 +114,11 @@ export const filterJsonFile = (jsonFilePath, columnName, filterValue) => {
   // Find the index of the column
   const columnIndex = header.indexOf(columnName);
 
-  // Filter rows based on the filter value in the specified column
-  const filteredData = data.filter(row => row[columnIndex] === filterValue);
+   // Create a regex for the filter value
+   const regex = new RegExp(`^${filterValue}`);
+
+   // Filter rows based on the filter value in the specified column
+   const filteredData = data.filter(row => regex.test(row[columnIndex])); 
 
   // Add the header back to the filtered data
   filteredData.unshift(header);
@@ -132,8 +135,11 @@ export const filterJsonData = (jsonData, columnName, filterValue) => {
   // Find the index of the column
   const columnIndex = header.indexOf(columnName);
 
+  // Create a regex for the filter value
+  const regex = new RegExp(`^${filterValue}`);
+
   // Filter rows based on the filter value in the specified column
-  const filteredData = data.filter(row => row[columnIndex] === filterValue);
+  const filteredData = data.filter(row => regex.test(row[columnIndex]));
 
   // Add the header back to the filtered data
   filteredData.unshift(header);
